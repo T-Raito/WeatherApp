@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { IconContext } from "react-icons";
-import { AiOutlineSearch } from "react-icons/ai";
 import Url from "../components/Url";
 import Card from "../components/Card";
+import { GiHummingbird } from "../../node_modules/react-icons/gi";
 
 const Search = ({ props }) => {
   const [place, setPlace] = useState("");
@@ -26,7 +26,7 @@ const Search = ({ props }) => {
   // console.log("place", place);
 
   return (
-    <div>
+    <div style={style.total}>
       <p style={style.top}>How's the Weather?</p>
       <p style={style.search}>
         <input
@@ -35,11 +35,9 @@ const Search = ({ props }) => {
           onChange={handlePlace}
           style={style.input}
         />
-        <button onClick={getInPlace} style={style.button}>
-          <IconContext.Provider value={{ size: "3vh", color: "black" }}>
-            <AiOutlineSearch />
-          </IconContext.Provider>
-        </button>
+        <IconContext.Provider value={{ size: "7vw", color: "white" }}>
+          <GiHummingbird onClick={getInPlace} />
+        </IconContext.Provider>
       </p>
       {resources.id ? (
         <Card
@@ -56,40 +54,36 @@ const Search = ({ props }) => {
 };
 
 const style = {
+  total: {
+    marginBottom: "2vh",
+  },
   top: {
     width: window.innerWidth,
     fontSize: "5vh",
     fontFamily: "Comic Sans MS",
     textAlign: "center",
     marginTop: "50px",
-    marginBottom: "50px",
+    marginBottom: "20px",
   },
   search: {
-    marginLeft: "0px",
-    fontSize: "3vh",
+    marginLeft: "7vw",
     fontFamily: "Comic Sans MS",
     textAlign: "center",
-    margin: "0 auto",
-  },
-  button: {
-    width: "6vh",
-    height: "6vh",
-    borderRadius: "50%",
+    marginBottom: "2vh",
   },
   input: {
     font: "2.5vh sans-serif",
+    fontcolor: "black",
     boxSizing: "border-box",
     width: "50%",
     height: "6vh",
     padding: "0.3em",
     transition: "0.3s",
     letterSpacing: "1px",
-    color: "#aaaaaa",
     border: "1px solid #ffffff",
     boxShadow: "1px 1px 2px 0 #707070 inset",
     borderRadius: "4px",
-    margin: "2vw",
-    marginRight: "2vw",
+    marginRight: "4vw",
   },
 };
 

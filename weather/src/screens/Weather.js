@@ -31,13 +31,15 @@ export const Weather = () => {
       }
     }
   };
+
   console.log("resources", resources);
   return (
     <div style={style.background}>
       <Header text="Home" onClick={getWeather} />
       <Search />
       {resources[0] && (
-        <div style={style.listBlock}>
+        <div>
+          <p style={style.font}>~Lists~</p>
           <ul style={style.list}>
             {resources.map((resources, index) => (
               <li key={index}>
@@ -46,6 +48,7 @@ export const Weather = () => {
                   temp={resources.main.temp}
                   humidity={resources.main.humidity}
                   weatherMain={resources.weather[0].main}
+                  defaultWeatherData={resources}
                 />
               </li>
             ))}
@@ -60,13 +63,23 @@ const style = {
   background: {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
-    marginTop: "30px",
     width: window.innerWidth,
     height: window.innerHeight,
   },
-  listBlock: {},
+  // listTotal: {
+  //   backgroundColor: "tomato",
+  // },
   list: {
+    height: "43vh",
     listStyle: "none",
     paddingLeft: "0px",
+    overflowX: "hidden",
+    overflowY: "scroll",
+  },
+  font: {
+    fontSize: "3vh",
+    fontFamily: "Comic Sans MS",
+    textAlign: "center",
+    marginBottom: "2vh",
   },
 };
